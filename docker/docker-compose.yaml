@@ -1,0 +1,15 @@
+version: "3.1"
+services:
+   pfdb1:
+#        image: container-registry.oracle.com/database/enterprise:19.3.0.0
+        image: pfdb1:dev
+        build:
+            context: .
+            dockerfile: DockerOraXE
+        ports:
+            - "127.0.0.1:1521:1521"
+            - "127.0.0.1:5500:5500"
+        volumes:
+            - /home/kam/ora/data:/opt/oracle/oradata
+            - /home/kam/ora/setup:/opt/oracle/scripts/setup
+        restart: always
