@@ -18,7 +18,7 @@
 ## Установка
 1. Подготовить linux сервер с Docker и Docker Compose
 2. В целевой папке выполнить `git clone https://github.com/ikamil/fitkam.git`
-3. Выполнить `chmode 777 data && cd docker`
+3. Выполнить `chmode 777 fitkam/data && cd fitkam/docker`
 4. Запустить установку и дождаться выполнения `docker-compose up -d`
 
 ## Документация
