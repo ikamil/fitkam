@@ -25,4 +25,4 @@ ALTER PACKAGE "PF"."PMAINTENANCE" compile body;
 ALTER PACKAGE "PF"."PMAINTENANCE" compile;
 grant select, update on "PF"."TREPGROUP" to kam;
 alter trigger "PF"."TR_USER" compile;
-begin prun; pf.parchive.init(); end;
+begin pf.prun; pf.parchive.init(); end;
