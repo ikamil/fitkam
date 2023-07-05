@@ -1,4 +1,10 @@
 ALTER SESSION SET CONTAINER = XEPDB1;
+begin
+    DBMS_STATS.DROP_ADVISOR_TASK('AUTO_STATS_ADVISOR_TASK');
+    DBMS_STATS.DROP_ADVISOR_TASK('INDIVIDUAL_STATS_ADVISOR_TASK');
+    DBMS_STATS.INIT_PACKAGE();
+    commit;
+end;
 
 grant connect, dba, alter user, drop user, grant any role, create user, alter system to kam;
 grant execute on sys.dbms_sql to kam;
