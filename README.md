@@ -15,12 +15,18 @@
 - Строгая типизация бизнес-процессов — платежи отделены от услуг, посещения от тренировок, даты платежей от дат действия услуг, и т.д.
 - Инструментарий для массовой печати клубных карт.
 
-## Установка
+## Установка серверной части Oracle XE
 1. Подготовить linux сервер с Docker и Docker Compose
 2. Предоставить пользователю доступ к docker, например `usermod kam -gdocker`
 3. В целевой папке выполнить `git clone https://github.com/ikamil/fitkam.git`
 4. Выполнить `chmod 777 fitkam/data && cd fitkam/docker`
 5. Запустить установку и дождаться выполнения `docker-compose up -d`
+
+## Клиенсткая часть
+1. Скачать Oracle Instant Client версии 19
+2. Распаковать Oracle Instant клиент в папку **desktop/instantclient**
+3. Отредактировать файл **desktop/instantclient/tnsnames.ora**, вписать на ip-адрес сервера
+4. Запустить mms2.exe с параметром -m1
 
 ## Документация
 https://fit.kambox.ru
