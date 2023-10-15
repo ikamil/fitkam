@@ -3,9 +3,13 @@ begin
     DBMS_STATS.DROP_ADVISOR_TASK('AUTO_STATS_ADVISOR_TASK');
     DBMS_STATS.DROP_ADVISOR_TASK('INDIVIDUAL_STATS_ADVISOR_TASK');
     DBMS_STATS.INIT_PACKAGE();
+    dbms_stats.set_advisor_task_parameter('AUTO_STATS_ADVISOR_TASK', 'DAYS_TO_EXPIRE', 'UNLIMITED');
+    dbms_stats.set_advisor_task_parameter('AUTO_STATS_ADVISOR_TASK', 'EXECUTION_DAYS_TO_EXPIRE', 30);
+    dbms_stats.set_advisor_task_parameter('INDIVIDUAL_STATS_ADVISOR_TASK','DAYS_TO_EXPIRE', 'UNLIMITED');
+    dbms_stats.set_advisor_task_parameter('INDIVIDUAL_STATS_ADVISOR_TASK','EXECUTION_DAYS_TO_EXPIRE', 30);
     commit;
 end;
-
+/
 grant connect, dba, alter user, drop user, grant any role, create user, alter system to kam;
 grant execute on sys.dbms_sql to kam;
 grant drop user to kam;
@@ -29,6 +33,10 @@ ALTER PACKAGE "PF"."PREPORTS_COLLECTION" compile body;
 ALTER PACKAGE "PF"."PREPORTS_COLLECTION" compile;
 ALTER PACKAGE "PF"."PMAINTENANCE" compile body;
 ALTER PACKAGE "PF"."PMAINTENANCE" compile;
+begin pf.prun(); end;
+/
+begin pf.parchive.init(); end;
+/
+
 grant select, update on "PF"."TREPGROUP" to kam;
 alter trigger "PF"."TR_USER" compile;
-begin pf.prun; pf.parchive.init(); end;
