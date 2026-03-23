@@ -1,59 +1,52 @@
-# fitkam - уникальная система управления распределённой сетью фитнес-клубов
+# fitkam — a unique management system for distributed fitness club networks
 
-Скачать trial версию: https://github.com/ikamil/fitkam/blob/main/README.md#установка-серверной-части-oracle-xe
+Download trial version: https://github.com/ikamil/fitkam/blob/main/README.md#установка-серверной-части-oracle-xe
 
-Полная информация на сайте https://fit.kambox.ru
+Full information at https://fit.kambox.ru
 
-Десктоп-версия программы управления распределённой сетью фитнес-клубов со специфическими бизнес-процессами, сложной тарификацией, множественными юрлицами и маркетинговыми акциями
+A desktop application for managing a distributed fitness club network with specific business processes, complex billing, multiple legal entities, and marketing promotions.
 
-По всем вопросам https://t.me/fitkam
+For all inquiries: https://t.me/fitkam
 
-## Ключевые особенности программы:
-- Самая гибкая в индустрии настройка цен — вдохновлённая тарифной сеткой интернет-провайдеров.
+---
 
-![alt text](https://fit.kambox.ru/wp-content/uploads/2015/04/serv-cost.png)
-- Работа с несколькими юрлицами и авто-разнесение их платежей по разным кассовым аппаратам — кассиру достаточно выбрать услугу, и чек отправится на один из нескольких подключенных ККМ.
+## Key Features
 
-![alt text](https://fit.kambox.ru/wp-content/uploads/2015/11/cachregchoose1.png)
-- Удобная платформа управления вознаграждением фитнес-инструкторов с накопительной рейтинговой шкалой.
+- **The most flexible pricing configuration in the industry** — inspired by the tariff structures used by internet service providers.
+- **Multi-legal-entity support with automatic payment routing** across different cash register terminals — the cashier simply selects a service, and the receipt is automatically sent to one of several connected POS devices.
+- **Convenient platform for managing fitness instructor compensation** with a cumulative rating scale.
+- **The most flexible, configurable, and pre-built reporting system in the industry**, organized as a multi-level catalog.
+- **Intelligent locker room filling algorithm** that evenly distributes locker assignments, with support for paid reservations of preferred lockers.
+- **Unique gift certificate batch management** with automatic redemption upon visits.
+- **Role-based access model** with the ability to configure privileges at the level of restrictions, interface display, and available functionality.
+- **Selective data synchronization system** between servers in a distributed club network. The following can be synchronized independently:
+  - Client data (memberships, payments, and service orders operate locally)
+  - Price plan and service catalog (prices are configured locally)
+  - Staff members with their assigned fitness zones
+- **Strict business process typing** — payments are separated from services, visits from training sessions, payment dates from service validity dates, etc.
+- **Toolkit for bulk printing of club membership cards.**
 
-![alt text](https://fit.kambox.ru/wp-content/uploads/2023/10/image.png)
-- Наиболее гибкая в индустрии, управляемая и преднастроенная система отчётов, реализованная в виде многоуровневого каталога.
+---
 
-![alt text](https://fit.kambox.ru/wp-content/uploads/2023/10/image-1.png)
-- Интеллектуальный алгоритм равномерного заполнения гардеробов, с учётом платной брони любимых шкафчиков.
+## Server Installation (Oracle XE)
 
-![alt text](https://fit.kambox.ru/wp-content/uploads/2023/10/image-2.png)
-- Уникальный функционал управления пачками подарочных сертификатов с авто-погашением при визитах.
+1. Prepare a Linux server with Docker and Docker Compose
+2. Grant the user access to Docker, e.g. `usermod kam -gdocker`
+3. In the target folder, run `git clone https://github.com/ikamil/fitkam.git`
+4. Run `chmod 777 fitkam/data && cd fitkam/docker`
+5. Start the installation and wait for it to complete: `docker-compose up -d`
 
-![alt text](https://fit.kambox.ru/wp-content/uploads/2023/10/image-3.png)
-- Ролевая модель с возможностью настройки привилегий, как на уровне ограничений, так и отображения интерфейса и доступного функционала.
-- Управляемая система выборочной синхронизации данных между серверами распределённой сети клубов, отдельно могут синхронизироваться:
+## Client Installation
 
-![alt text](https://fit.kambox.ru/wp-content/uploads/2016/01/perlica.png)
-клиентские данные (членства, платежи и заказы услуг работают локально);
-номенклатура тарифных планов и услуг (цены настраиваются локально);
-сотрудники с привязкой их к фитнес-зонам.
-- Строгая типизация бизнес-процессов — платежи отделены от услуг, посещения от тренировок, даты платежей от дат действия услуг, и т.д.
-- Инструментарий для массовой печати клубных карт.
+1. Download Oracle Instant Client version 19
+2. Extract the Oracle Instant Client into the **desktop/instantclient** folder
+3. Edit the file **desktop/instantclient/tnsnames.ora** and enter the server's IP address
+4. Launch `mms2.exe` with the parameter `-m1`
 
-![alt text](https://fit.kambox.ru/wp-content/uploads/2023/10/image-4.png)
+---
 
-## Установка серверной части Oracle XE
-1. Подготовить linux сервер с Docker и Docker Compose
-2. Предоставить пользователю доступ к docker, например `usermod kam -gdocker`
-3. В целевой папке выполнить `git clone https://github.com/ikamil/fitkam.git`
-4. Выполнить `chmod 777 fitkam/data && cd fitkam/docker`
-5. Запустить установку и дождаться выполнения `docker-compose up -d`
-
-## Клиенсткая часть
-1. Скачать Oracle Instant Client версии 19
-2. Распаковать Oracle Instant клиент в папку **desktop/instantclient**
-3. Отредактировать файл **desktop/instantclient/tnsnames.ora**, вписать на ip-адрес сервера
-4. Запустить mms2.exe с параметром -m1
-
-## Документация
+## Documentation
 https://fit.kambox.ru
 
-## Канал телеграм
+## Telegram Channel
 https://t.me/fitkam
